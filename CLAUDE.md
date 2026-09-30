@@ -2,9 +2,9 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-# Claude-Scons-DB
+# test_summit_utils
 
-This repository contains `Claude-Scons-DB`, a Python library to experiment with using Claude to search for correlations within the Scons-DB database. This document contains critical information about working with this codebase. Follow these guidelines precisely.
+This repository contains `test_summit_utils`, a Python library to experiment with using Claude to test new summit_utils code. This document contains critical information about working with this codebase. Follow these guidelines precisely.
 
 ## Current state (read first)
 
@@ -13,18 +13,24 @@ project) and has been de-templated but has **almost no production code yet**:
 `src/claude_scons_db/__init__.py` is empty, `utils/` is an empty subpackage, and the architecture
 is still `TBD` in the subpackage `CLAUDE.md`. Building out that architecture is the main work ahead.
 
-The importable package is `claude_scons_db` (underscores — the repo dir uses a hyphen, but the
+The importable package is `test_summit_utils` (underscores — the repo dir uses a hyphen, but the
 Python package must not). `pyproject.toml`/`environment.yaml` have been reset to this project's
 identity with `numpy` as the only runtime dependency; add real dependencies as the code grows.
 
 ## Development environment
 
 Developed against the shared Rubin/LSST stack on SDF. There is no `python`/`black`/`pytest` on the
-bare login PATH — you must set up the stack first:
-
+bare login PATH — you must set up the stack first.  After setting up the stack, we need to connect to the correct branch of summit_utils, i.e., the branch we want to test.
 ```bash
 source /sdf/group/rubin/sw/w_latest/loadLSST.sh
 setup lsst_distrib
+cd src
+mkdir WORK
+cd WORK
+git clone https://github.com/lsst-so/summit_utils.git
+cd summit_utils
+git checkout tickets/DM-56137
+setup -j -r src/WORK/summit_utils
 ```
 
 See `CONTRIBUTING.md` for the Claude Code Bash-tool env-caching setup (`BASH_ENV` loader) that
@@ -110,10 +116,10 @@ pytest -k "pattern"
 
 ## Repository Layout
 
-- Production code in `src/claude_scons_db`
+- Production code in `src`
 - Tests in `tests` mirror the package structure
-- Subpackages in subdirectories of `src/claude_scons_db`
-- Public utilities in `src/claude_scons_db/utils`
+- Subpackages in subdirectories of `src/`
+- Public utilities in `src/utils`
 
 ## Context Management
 

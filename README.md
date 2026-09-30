@@ -1,3 +1,3 @@
-# Practice using Claude to search for correlations in the Scons-DB database.
+# Using Claude to test a new version of summit_utils
 
-Claude-scons-db is open-source software developed to use Claude to search for database correlations.
+test_summit_utils is open-source software developed to use Claude to test new summit_utils code.

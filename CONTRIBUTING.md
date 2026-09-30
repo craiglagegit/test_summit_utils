@@ -1,13 +1,20 @@
-# Contributing to scons-db
+# Contributing to test_summit_utils
 
 ## Development environment
 
-`claude-scons-db` is developed against the shared Rubin/LSST stack on SDF. Set up the
+`test_summit_utils` is developed against the shared Rubin/LSST stack on SDF. Set up the
 environment with:
 
 ```bash
 source /sdf/group/rubin/sw/w_latest/loadLSST.sh
 setup lsst_distrib
+cd src
+mkdir WORK
+cd WORK
+git clone https://github.com/lsst-so/summit_utils.git
+cd summit_utils
+git checkout tickets/DM-56137
+setup -j -r src/WORK/summit_utils
 ```
 
 ## Speeding up Claude Code's Bash tool on the shared LSST stack
