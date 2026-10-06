@@ -1,0 +1,8 @@
+Mount-motion batch run summary (metric = imageImpactRms)
+Thresholds: yellow > 0.05, red > 0.1
+
+night        processed  green  yellow   red  skip   err  done_before
+20260525         902    897       3     2     0     0            0
+20260603         489    392       0    97     0     0            0
+
+TOTALS: already_done=0, errored=0, green=1289, processed=1391, red=99, skipped_nontracking=0, yellow=3
